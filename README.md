@@ -107,3 +107,7 @@ I created my dependencies and **plug-ins** in **pom.xml**.
 **stepDefinitions**
 **Hooks** @Before-setUpMethod @After-tearDown works same as testNg@Before-AfterMethod
 **LoginStepDefs** I write my java method here and execute feature files
+
+# Author
+- Ahmet Faruk Eser - lusiferc679@gmail.com
+- Mujgan Aydin Oymaci - mujganaydin0732@gmail.com
