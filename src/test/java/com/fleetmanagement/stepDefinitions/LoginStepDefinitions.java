@@ -18,7 +18,7 @@ public class LoginStepDefinitions {
 
     @Given("the user is on the login page")
     public void theUserIsOnTheLoginPage() {
-    Driver.getDriver().get(ConfigurationReader.getProperty("envLoginURL"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("envLoginURL"));
     }
 
     @When("the user enters Truck Driver information")

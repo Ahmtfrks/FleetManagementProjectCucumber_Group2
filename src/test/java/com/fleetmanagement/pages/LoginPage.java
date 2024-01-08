@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.time.Duration;
+
 public class LoginPage extends BasePage {
 
 
@@ -21,10 +23,12 @@ public class LoginPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='bar']")
     public WebElement loadingBar;
+
     //div[@class='bar']
     public void login(String userNameInput, String passwordInput) {
-    userName.sendKeys(userNameInput);
-    password.sendKeys(passwordInput + Keys.ENTER);
+        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        userName.sendKeys(userNameInput);
+        password.sendKeys(passwordInput + Keys.ENTER);
         //loginButton.click();
     }
 
