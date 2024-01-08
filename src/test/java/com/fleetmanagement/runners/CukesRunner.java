@@ -1,4 +1,5 @@
 package com.fleetmanagement.runners;
+
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
@@ -11,7 +12,7 @@ import org.junit.runner.RunWith;
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber"
         },
         features = "src/test/resources/features",
-        glue ="com/fleetmanagement/stepDefinitions",
+        glue = "com/fleetmanagement/stepDefinitions",
         dryRun = false,
         tags = ""
 
