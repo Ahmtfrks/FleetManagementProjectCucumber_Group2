@@ -21,16 +21,16 @@ public class BrowserUtils {
     and execute Thread.sleep method for given duration
     Arg: int second
      */
-    public static void sleep(int second){
+    public static void sleep(int second) {
         second *= 1000;
-        try{
+        try {
             Thread.sleep(second);
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
 
         }
     }
 
-    public static void switchWindowAndVerify(String expectedInURL, String expectedInTitle){
+    public static void switchWindowAndVerify(String expectedInURL, String expectedInTitle) {
 
         //Return and store all window handles in a Set.
         Set<String> allWindowHandles = Driver.getDriver().getWindowHandles();
@@ -40,7 +40,7 @@ public class BrowserUtils {
             Driver.getDriver().switchTo().window(each);
             System.out.println("Current URL: " + Driver.getDriver().getCurrentUrl());
 
-            if (Driver.getDriver().getCurrentUrl().contains(expectedInURL )){
+            if (Driver.getDriver().getCurrentUrl().contains(expectedInURL)) {
                 break;
             }
         }
@@ -51,12 +51,11 @@ public class BrowserUtils {
     }
 
 
-
-    public static void verifyTitle(String expectedTitle){
-        Assert.assertEquals(expectedTitle,Driver.getDriver().getTitle());
+    public static void verifyTitle(String expectedTitle) {
+        Assert.assertEquals(expectedTitle, Driver.getDriver().getTitle());
     }
 
-    public static void verifyTitleContains( String expectedInTitle){
+    public static void verifyTitleContains(String expectedInTitle) {
         Assert.assertTrue(Driver.getDriver().getTitle().contains(expectedInTitle));
     }
 
@@ -64,7 +63,7 @@ public class BrowserUtils {
     This method accepts WebElement target,
     and waits for that WebElement not to be displayed on the page
      */
-    public static void waitForInvisibilityOf(WebElement target){
+    public static void waitForInvisibilityOf(WebElement target) {
         //Create the object of 'WebDriverWait' class, and set up the constructor args
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
 
@@ -76,7 +75,7 @@ public class BrowserUtils {
     This method accepts String title,
     and waits for that Title to contain given String value.
      */
-    public static void waitForTitleContains(String title){
+    public static void waitForTitleContains(String title) {
         //Create the object of 'WebDriverWait' class, and set up the constructor args
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
 
@@ -86,10 +85,11 @@ public class BrowserUtils {
 
     /**
      * This method accepts a dropdown element and returns a List<String> that contains all options values as String.
+     *
      * @param dropdownElement
      * @return actualMonth_as_STRING
      */
-    public static List<String> dropdownOptions_as_STRING(WebElement dropdownElement){
+    public static List<String> dropdownOptions_as_STRING(WebElement dropdownElement) {
 
         Select month = new Select(dropdownElement);
         //Storing all the ACTUAL options into a List of WebElements
@@ -109,9 +109,9 @@ public class BrowserUtils {
 
     }
 
-    public static void clickRadioButton(List<WebElement> radioButtons, String attributeValue){
+    public static void clickRadioButton(List<WebElement> radioButtons, String attributeValue) {
         for (WebElement each : radioButtons) {
-            if(each.getAttribute("value").equalsIgnoreCase(attributeValue)){
+            if (each.getAttribute("value").equalsIgnoreCase(attributeValue)) {
                 each.click();
             }
         }
@@ -119,14 +119,16 @@ public class BrowserUtils {
 
     /**
      * This method will accept a String as expected value and verify actual URL CONTAINS the value.
+     *
      * @param expectedInURL
      */
-    public static void verifyURLContains(String expectedInURL){
+    public static void verifyURLContains(String expectedInURL) {
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(expectedInURL));
     }
 
     /**
      * Switches to new window by the exact title. Returns to original window if target title not found
+     *
      * @param targetTitle
      */
     public static void switchToWindow(String targetTitle) {
@@ -383,6 +385,7 @@ public class BrowserUtils {
 
     /**
      * Highlighs an element by changing its background and border color
+     *
      * @param element
      */
     public static void highlight(WebElement element) {
@@ -478,8 +481,9 @@ public class BrowserUtils {
     }
 
     /**
-     *  checks that an element is present on the DOM of a page. This does not
-     *    * necessarily mean that the element is visible.
+     * checks that an element is present on the DOM of a page. This does not
+     * * necessarily mean that the element is visible.
+     *
      * @param by
      * @param time
      */
