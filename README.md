@@ -4,10 +4,10 @@
 
 **group2-eu12**
 
-
 **Explanation:**
 
-I used different management and automation tools as IntelliJ, Selenium WebDriver for browser automation, Maven for dependencies, Cucumber and Junit. I also used
+I used different management and automation tools as IntelliJ, Selenium WebDriver for browser automation, Maven for
+dependencies, Cucumber and Junit. I also used
 POM structure to keep my code organized and clean.
 
 **POM-->**
@@ -20,14 +20,18 @@ POM structure to keep my code organized and clean.
 
 **public BasePage() {
 PageFactory.initElements(Driver.get(), this); }**
-**PageFactory:** This is a class from the Selenium WebDriver library that provides a way to initialize elements in Page Objects. Page Objects are a design pattern used for modeling web pages in a more object-oriented way.
+**PageFactory:** This is a class from the Selenium WebDriver library that provides a way to initialize elements in Page
+Objects. Page Objects are a design pattern used for modeling web pages in a more object-oriented way.
 **initElements:** This is a method of the PageFactory class used to initialize elements on a page.
-**Driver.get():** This is invoking a static method (possibly get()) on a class named Driver. It seems like it's retrieving some WebDriver instance (Driver class) that is used to interact with a web browser.
+**Driver.get():** This is invoking a static method (possibly get()) on a class named Driver. It seems like it's
+retrieving some WebDriver instance (Driver class) that is used to interact with a web browser.
 **this:** It refers to the current instance of the BasePage class.
 
--->I created a BasPage constructor. It's in a class that gets executed automatically when an object of the class is created.
+-->I created a BasPage constructor. It's in a class that gets executed automatically when an object of the class is
+created.
 
-**Example of method in BasePage**-->navigateToModule(String tab, String module) getPageSubTitle() waitUntilLoaderScreenDisappear() getUserName()
+**Example of method in BasePage**-->navigateToModule(String tab, String module) getPageSubTitle()
+waitUntilLoaderScreenDisappear() getUserName()
 
 **PageFactory:**
 
@@ -41,8 +45,9 @@ for each scenario(positive or negative) I created Cucumber feature files
 where I used GHERKIN language to describe my test scenarios.
 
 **JUnit:**
-for starting my tests and for assertions, My framework is BDD, which uses Cucumber to write tests in feature file, organize
-test suites like @store_manager   @sales_manager @login   @driver.
+for starting my tests and for assertions, My framework is BDD, which uses Cucumber to write tests in feature file,
+organize
+test suites like @store_manager @sales_manager @login @driver.
 Our feature files are written in Gherkin language to make it easy to understand for nontechnical people
 
 **HTML reports:**
@@ -52,8 +57,8 @@ My framework generates HTML reports with defined steps from the feature file.
 **CukesRunner**
 **@RunWith(Cucumber.class)**
 **@CucumberOptions**
-**plugin** html report, cucumber report, 
-**features** Scenario included this path 
+**plugin** html report, cucumber report,
+**features** Scenario included this path
 **glue** step definition package path includes here  
 **dryRun** It's a quick way to check for missing or undefined step definitions.
 **tags** which tag we will run
@@ -64,21 +69,26 @@ My framework generates HTML reports with defined steps from the feature file.
 features = "@target/rerun.txt", //location of my rerun folder
 glue= "com/vytrack/step_definitions"//step definition folder path**
 /**
+
 * If some test is fail it will just show which one is fail
 * once when we fix fail test I dont want to run 1000 test again
 * we can run FailedTestRunner(run just failed one) instead od running from CukesRunner class(for run everything)
 * don't forget in the beginning we run our code from CukesRunner class
-* under target folder rerun.txt automatically created--> we put CukesRunner class inside plugin and write there rerun:target/rerun.txt
+* under target folder rerun.txt automatically created--> we put CukesRunner class inside plugin and write there rerun:
+  target/rerun.txt
 * this rerun.txt shows us where is the problem line not pass
 * for delete memory from there click the maven symbol --> Lifecycle --> clean
   */
-**utilities:**
-I created another separate package for my utilities where I would store all my Drivers, ConfigurationReader and BrowserUtils
+  **utilities:**
+  I created another separate package for my utilities where I would store all my Drivers, ConfigurationReader and
+  BrowserUtils
 
 **Drivers**-->
-Driver class is designed as **Singleton**(if-else) My frameworks uses a singleton pattern to share the webdriver instance between different classes
-DriverPool(set,remove,get) include Chrome,firefox, edge , headless-chrome( driverPool.set(new ChromeDriver(new ChromeOptions().setHeadless(true)));)
-// InheritableThreadLocal  --> this is like a container, bag, pool. return webelement
+Driver class is designed as **Singleton**(if-else) My frameworks uses a singleton pattern to share the webdriver
+instance between different classes
+DriverPool(set,remove,get) include Chrome,firefox, edge , headless-chrome( driverPool.set(new ChromeDriver(new
+ChromeOptions().setHeadless(true)));)
+// InheritableThreadLocal --> this is like a container, bag, pool. return webelement
 // in this pool we can have separate objects for each thread
 // for each thread, in InheritableThreadLocal we can have separate object for that thread
 // driver class will provide separate webdriver object per thread
@@ -88,7 +98,8 @@ for read my configuration.properties file. key and value format I have getProper
 for reading file FileInputStream class inside static block and try.catch block properties value is private
 
 **BrowserUtils:** i create basic method that I use often for not repeat myself.
-example:sleep() verifyTitle() verifyTitleContains() verifyURLContains() clickRadioButtondropdownOptions_as_STRING() hover() getElementsText()
+example:sleep() verifyTitle() verifyTitleContains() verifyURLContains() clickRadioButtondropdownOptions_as_STRING()
+hover() getElementsText()
 
 -this part is not correct I will cover later-
 -Reporting is done in cucumber and Junit -
@@ -101,13 +112,15 @@ I created my dependencies and **plug-ins** in **pom.xml**.
 **webdrivermanager:** its optional for selenium4 but necessary for selenium3
 **cucumber-java:** needed to write and execute Cucumber scenarios.
 **cucumber-junit:**  is used to integrate Cucumber scenarios with the JUnit testing framework.
-**reporting-plugin:** it generates HTML reports containing information about the executed scenarios, steps, and overall test results
-**Maven Surefire Plugin:** this configuration is used for running JUnit tests in parallel. 
+**reporting-plugin:** it generates HTML reports containing information about the executed scenarios, steps, and overall
+test results
+**Maven Surefire Plugin:** this configuration is used for running JUnit tests in parallel.
 
 **stepDefinitions**
 **Hooks** @Before-setUpMethod @After-tearDown works same as testNg@Before-AfterMethod
 **LoginStepDefs** I write my java method here and execute feature files
 
 # Author
+
 - Ahmet Faruk Eser - lusiferc679@gmail.com
 - Mujgan Aydin Oymaci - mujganaydin0732@gmail.com

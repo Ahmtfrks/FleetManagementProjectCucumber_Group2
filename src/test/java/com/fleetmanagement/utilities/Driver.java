@@ -1,18 +1,12 @@
 package com.fleetmanagement.utilities;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.time.Duration;
-
 public class Driver {
 
-    //create a private constructor to remove access to this object
-    private Driver() {
-    }
+    private static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
 
 
     /*
@@ -21,7 +15,9 @@ public class Driver {
      */
     //private static WebDriver driver; // default value = null
 
-    private static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
+    //create a private constructor to remove access to this object
+    private Driver() {
+    }
 
     /*
     Create a re-usable utility method which will return the same driver instance once we call it.
