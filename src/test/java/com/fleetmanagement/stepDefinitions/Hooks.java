@@ -24,7 +24,7 @@ public class Hooks {
         Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
         Driver.getDriver().get(ConfigurationReader.getProperty("envLoginURL"));
-    }
+    }//fgkdghsdfkghdfjkshgjgsdfjk
 
     //@Before (value = "@login", order = 2 )
     public void login_scenario_before() {
