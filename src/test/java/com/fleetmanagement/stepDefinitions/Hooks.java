@@ -18,7 +18,7 @@ for ALL the SCENARIOS and even STEPS.
 public class Hooks {
 
     //import the @Before coming from io.cucumber.java
-    @Before(order = 1)
+    @Before(order = 1)//TODO learn this
     public void setupMethod() {
 
         Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
@@ -44,7 +44,7 @@ public class Hooks {
 
         }
 
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(3);
         Driver.closeDriver();
 
     }

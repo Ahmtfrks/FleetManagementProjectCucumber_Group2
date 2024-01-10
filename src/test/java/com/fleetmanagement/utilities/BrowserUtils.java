@@ -52,7 +52,7 @@ public class BrowserUtils {
 
 
     public static void verifyTitle(String expectedTitle) {
-        Assert.assertEquals(expectedTitle, Driver.getDriver().getTitle());
+        Assert.assertEquals("VERIFY TITLE IS NOT SAME AS EXPECTED",expectedTitle, Driver.getDriver().getTitle());
     }
 
     public static void verifyTitleContains(String expectedInTitle) {
