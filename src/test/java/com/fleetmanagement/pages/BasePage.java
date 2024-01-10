@@ -33,7 +33,7 @@ public abstract class BasePage {
     public WebElement logOutLink;
 
     @FindBy(linkText = "My User")
-    public WebElement myUser;
+    public WebElement myUser;//TODO find this element
 
     public BasePage() {
         PageFactory.initElements(Driver.getDriver(), this);
