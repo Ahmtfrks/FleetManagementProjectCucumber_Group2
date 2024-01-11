@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/fleetmanagement/stepDefinitions",
         dryRun = false,
-        tags = "@deneme"
+        tags = "@smoke"
 
 )
 

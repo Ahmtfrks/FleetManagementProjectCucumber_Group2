@@ -65,9 +65,24 @@ public abstract class BasePage {
         }
 
     }
+    public String getUserName(){
+        waitUntilLoaderScreenDisappear();
+        BrowserUtils.waitForVisibility(userName, 5);
+        return userName.getText();
+    }
 
+    public void logOut(){
+        BrowserUtils.waitFor(2);
+        BrowserUtils.clickWithJS(userName);
+        BrowserUtils.clickWithJS(logOutLink);
+    }
 
+    public void goToMyUser(){
+        waitUntilLoaderScreenDisappear();
+        BrowserUtils.waitForClickablility(userName, 5).click();
+        BrowserUtils.waitForClickablility(myUser, 5).click();
 
+    }
     /**
      * This method will navigate user to the specific module in vytrack application.
      * For example: if tab is equals to Activities, and module equals to Calls,

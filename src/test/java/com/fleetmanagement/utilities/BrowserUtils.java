@@ -311,6 +311,16 @@ public class BrowserUtils {
         }
     }
 
+    public static void verifyElementsDisplayed(List<WebElement> elements) {
+        for (WebElement element : elements) {
+            try {
+                Assert.assertTrue("Element not visible: " + element, element.isDisplayed());
+            } catch (NoSuchElementException e) {
+                e.printStackTrace();
+                Assert.fail("Element not found: " + element);
+            }
+        }
+    }
 
     /**
      * Waits for element to be not stale
