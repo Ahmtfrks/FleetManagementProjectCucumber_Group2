@@ -40,6 +40,7 @@ public class VehicleOdometerPage extends BasePage {
         String xpath = "//*[contains(text(), '" + email + "') and @data-column-label='Email']";
         return Driver.getDriver().findElement(By.xpath(xpath));
     }
+
     public List<String> getElementsText(By locator) {
 
         List<WebElement> elems = Driver.getDriver().findElements(locator);
@@ -51,9 +52,6 @@ public class VehicleOdometerPage extends BasePage {
         return elemTexts;
     }
 
-
-
-// ...
 
     public List<String> getElementsText(List<WebElement> list) {
         List<String> elemTexts = new ArrayList<>();

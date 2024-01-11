@@ -12,7 +12,6 @@ Feature: As a user, I want to view car odometer info on the Vehicles Odometer pa
       | Sales Manager | The application is not configured properly (message consumers are not available). Please contact the system administrator. |
 
 
-
   Scenario: Default page number
     Given the user is on the login page
     And the user enters "Truck Driver" information

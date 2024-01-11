@@ -10,11 +10,11 @@ import org.junit.Assert;
 public class NavigationMenuStepDefinitions {
 
     VehicleOdometerPage vehicleOdameterPage = new VehicleOdometerPage();
+
     @When("the user navigates {string} {string}")
     public void the_user_navigates(String tab, String module) {
-        new VehicleOdometerPage().navigateToModule(tab,module);
+        new VehicleOdometerPage().navigateToModule(tab, module);
     }
-
 
 
     @Then("the title contains {string}")

@@ -25,7 +25,6 @@ public class LoginStepDefinitions {
         loginPage.login("user191", "UserUser123");
 
 
-
     }
 
     @Then("the user should see the dashboard")
@@ -48,7 +47,6 @@ public class LoginStepDefinitions {
     }
 
 
-
     @And("the user enters {string} information")
     public void theUserEntersInformation(String userType) {
         String username = null;
@@ -67,4 +65,4 @@ public class LoginStepDefinitions {
         loginPage.login(username, password);
 
     }
-    }
+}

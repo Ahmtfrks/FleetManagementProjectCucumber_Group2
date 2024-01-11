@@ -23,6 +23,7 @@ public class VehiclesOdometerPageStepDefinitions {
 
 
     }
+
     @Then("default view per page number should be {int}")
     public void default_view_per_page_number_should_be(Integer expectedPageNumber) {
         BrowserUtils.waitFor(2);
@@ -41,16 +42,15 @@ public class VehiclesOdometerPageStepDefinitions {
 
         BrowserUtils.sleep(2);
 
-       // BrowserUtils.verifyElementDisplayed(vehicleOdometerPage.errorMessage1);
-       // BrowserUtils.verifyElementDisplayed(vehicleOdometerPage.errorMessage2);
+
         BrowserUtils.verifyElementsDisplayed(vehicleOdometerPage.errorMessages);
-        //String expectedErrorMessages= You do not have permission to perform this action.
+
         BrowserUtils.sleep(2);
         List<String> elementsText = vehicleOdometerPage.getElementsText(vehicleOdometerPage.errorMessages);
 
         for (String errorMessage : elementsText) {
-            if (errorMessage.contains(expectedErrorMessages)){
-                Assert.assertEquals("ERROR MESSAGES NOT MATCHES AS EXPECTED",expectedErrorMessages,errorMessage);
+            if (errorMessage.contains(expectedErrorMessages)) {
+                Assert.assertEquals("ERROR MESSAGES NOT MATCHES AS EXPECTED", expectedErrorMessages, errorMessage);
                 break;
             }
         }
