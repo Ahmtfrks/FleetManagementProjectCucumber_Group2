@@ -19,7 +19,7 @@ public class ConfigurationReader {
             //3- Load the "properties" object with "file" (load properties)
             properties.load(file);
 
-            //close the file in the memory
+            //close the file in the memory for less memory usage
             file.close();
 
         } catch (IOException e) {
