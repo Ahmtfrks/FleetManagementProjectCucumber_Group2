@@ -17,12 +17,13 @@ public class LoginStepDefinitions {
         Driver.getDriver().get(ConfigurationReader.getProperty("envLoginURL"));
         BrowserUtils.waitForInvisibilityOf(loginPage.loadingBar);
 
+
     }
 
     @When("the user enters Truck Driver information")
     public void theUserEntersTruckDriverInformation() {
         loginPage.login("user191", "UserUser123");
-        BrowserUtils.waitForInvisibilityOf(loginPage.loadingBar);
+
 
 
     }
@@ -36,14 +37,14 @@ public class LoginStepDefinitions {
     @When("the user enters Store Manager information")
     public void theUserEntersStoreManagerInformation() {
         loginPage.login("storemanager51", "UserUser123");
-        BrowserUtils.waitForInvisibilityOf(loginPage.loadingBar);
+
     }
 
 
     @When("the user enters Sales Manager information")
     public void theUserEntersSalesManagerInformation() {
         loginPage.login("salesmanager101", "UserUser123");
-        BrowserUtils.waitForInvisibilityOf(loginPage.loadingBar);
+
     }
 
 
@@ -64,6 +65,6 @@ public class LoginStepDefinitions {
             password = ConfigurationReader.getProperty("store_manager_password");
         }
         loginPage.login(username, password);
-        BrowserUtils.waitForInvisibilityOf(loginPage.loadingBar);
+
     }
     }
