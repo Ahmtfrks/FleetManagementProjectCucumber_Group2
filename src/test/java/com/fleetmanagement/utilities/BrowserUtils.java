@@ -16,10 +16,10 @@ import java.util.Set;
 public class BrowserUtils {
 
 
-    /*
-    This method will accept int (in seconds)
-    and execute Thread.sleep method for given duration
-    Arg: int second
+    /**
+     * This method will accept int (in seconds)
+     * and execute Thread.sleep method for given duration
+     * Arg: int second
      */
     public static void sleep(int second) {
         second *= 1000;
@@ -52,16 +52,16 @@ public class BrowserUtils {
 
 
     public static void verifyTitle(String expectedTitle) {
-        Assert.assertEquals("VERIFY TITLE IS NOT SAME AS EXPECTED",expectedTitle, Driver.getDriver().getTitle());
+        Assert.assertEquals("VERIFY TITLE IS NOT SAME AS EXPECTED", expectedTitle, Driver.getDriver().getTitle());
     }
 
     public static void verifyTitleContains(String expectedInTitle) {
         Assert.assertTrue(Driver.getDriver().getTitle().contains(expectedInTitle));
     }
 
-    /*
-    This method accepts WebElement target,
-    and waits for that WebElement not to be displayed on the page
+    /**
+     * This method accepts WebElement target,
+     * and waits for that WebElement not to be displayed on the page
      */
     public static void waitForInvisibilityOf(WebElement target) {
         //Create the object of 'WebDriverWait' class, and set up the constructor args
@@ -71,9 +71,9 @@ public class BrowserUtils {
         wait.until(ExpectedConditions.invisibilityOf(target));
     }
 
-    /*
-    This method accepts String title,
-    and waits for that Title to contain given String value.
+    /**
+     * This method accepts String title,
+     * and waits for that Title to contain given String value.
      */
     public static void waitForTitleContains(String title) {
         //Create the object of 'WebDriverWait' class, and set up the constructor args
@@ -311,6 +311,16 @@ public class BrowserUtils {
         }
     }
 
+    public static void verifyElementsDisplayed(List<WebElement> elements) {
+        for (WebElement element : elements) {
+            try {
+                Assert.assertTrue("Element not visible: " + element, element.isDisplayed());
+            } catch (NoSuchElementException e) {
+                e.printStackTrace();
+                Assert.fail("Element not found: " + element);
+            }
+        }
+    }
 
     /**
      * Waits for element to be not stale
