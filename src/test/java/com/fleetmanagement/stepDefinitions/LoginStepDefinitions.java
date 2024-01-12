@@ -15,7 +15,7 @@ public class LoginStepDefinitions {
     @Given("the user is on the login page")
     public void theUserIsOnTheLoginPage() {
         Driver.getDriver().get(ConfigurationReader.getProperty("envLoginURL"));
-        BrowserUtils.waitForInvisibilityOf(loginPage.loadingBar);
+      BrowserUtils.sleep(2);
 
     }
 
