@@ -1,7 +1,7 @@
 Feature: View columns on the Vehicle models page
 
 
-
+  @wip
   Scenario Outline: Verify that user type can see 10 columns on the Vehicles Model page
     Given the user is on the login page
     When the user enters "<userType>" information
@@ -22,7 +22,7 @@ Feature: View columns on the Vehicle models page
       | Store Manager |
       | Sales Manager |
 
-  @wip
+
   Scenario:  Verify that Drivers cannot access the Vehicles Model page and see “You do not have permission to perform this action.” message on the screen.
 
     Given the user is on the login page

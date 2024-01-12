@@ -1,20 +1,15 @@
 package com.fleetmanagement.stepDefinitions;
 
-import com.fleetmanagement.pages.BasePage;
 import com.fleetmanagement.pages.VehiclesModelsPage;
 import com.fleetmanagement.utilities.BrowserUtils;
 import com.fleetmanagement.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import io.netty.handler.codec.compression.BrotliEncoder;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
 public class VehiclesModelStepDefinitions {
@@ -26,18 +21,41 @@ public class VehiclesModelStepDefinitions {
     public void userShouldSeesOptions(List<String> expectedColumns) {
         BrowserUtils.sleep(3);
 
-        List<WebElement> actualColumnElements = vehiclesModelsPage.columnNames;
+        boolean found = false;
 
+        try {
+            for (WebElement eachElement : vehiclesModelsPage.columnElements) {
+                String actualEachModule = eachElement.getText();
+                if (expectedColumns.contains(actualEachModule)) {
+                    found = true;
+                    break;
+                }
+            }
 
-        // List<WebElement> actualColumnNames= vehiclesModelsPage.columnNames;
-
-        //List<String> actualColumnNamesList = vehiclesModelsPage.columnNames;
-
-
-        // Assert.assertEquals(expectedColumns, actualColumnNamesList);
-        // Assert.assertEquals(expectedColumns,actualColumnNames);
-        Driver.closeDriver();
+            if (!found) {
+                throw new AssertionError("MODULE NAME NOT MATCHING AS EXPECTED");
+            }
+        } catch (Exception e) {
+            // Hata yakalandığında buraya gelecek
+            e.printStackTrace(); // Hatanın detaylarını yazdırabilirsiniz
+        } finally {
+            BrowserUtils.sleep(2);
+            Driver.closeDriver();
+        }
     }
+
+
+
+    // List<WebElement> actualColumnElements = BrowserUtils.verifyElementDisplayed(vehiclesModelsPage.columnNames);
+
+
+    // List<WebElement> actualColumnNames= vehiclesModelsPage.columnNames;
+
+    //List<String> actualColumnNamesList = vehiclesModelsPage.columnNames;
+
+
+    // Assert.assertEquals(expectedColumns, actualColumnNamesList);
+    // Assert.assertEquals(expectedColumns,actualColumnNames);
 
 
     @Then("User should sees  “You do not have permission to perform this action.” message on the screen")

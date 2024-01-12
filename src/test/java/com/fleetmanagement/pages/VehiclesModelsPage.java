@@ -37,7 +37,7 @@ public class VehiclesModelsPage extends BasePage {
             @FindBy(xpath = "//thead[@class='grid-header']//th[11]")
     })
 
-    public List<WebElement> columnNames;
+    public List<WebElement> columnElements;
 
 
 }
