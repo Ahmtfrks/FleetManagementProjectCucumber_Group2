@@ -11,9 +11,9 @@ import org.openqa.selenium.TakesScreenshot;
 
 import java.time.Duration;
 
-/*
+/**
 In this class we will be able to create "pre" and "post" condition
-for ALL the SCENARIOS and even STEPS.
+for ALL the SCENARIOS and even STEPS. @Before and @After annotations come from cucumber jvm java dependency
  */
 public class Hooks {
 
