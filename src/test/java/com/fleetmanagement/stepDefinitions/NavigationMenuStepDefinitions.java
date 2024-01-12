@@ -13,11 +13,12 @@ public class NavigationMenuStepDefinitions {
     @And("the user navigates {string} {string}")
     public void theUserNavigates(String tab, String module) {
     vehiclePage.navigateToModule(tab,module);
+        BrowserUtils.sleep(4);
     }
 
     @Then("the title contains {string}")
     public void theTitleContains(String title) {
-        BrowserUtils.sleep(3);
+        BrowserUtils.sleep(4);
         BrowserUtils.verifyTitleContains(title);
         Driver.closeDriver();
 

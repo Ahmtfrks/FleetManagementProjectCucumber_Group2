@@ -2,22 +2,81 @@ package com.fleetmanagement.pages;
 
 import com.fleetmanagement.utilities.BrowserUtils;
 import com.fleetmanagement.utilities.Driver;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Random;
 
 /**
  * This page includes common method and web element about fleet management app
  */
 public abstract class BasePage {
+
+   // @FindBy(xpath = "//ul[@class='dropdown-menu dropdown-menu__action-cell launchers-dropdown-menu detach dropdown-menu__floating']//*[@class='launcher-item']//a")
+    @FindBy(xpath = "//ul[@class='dropdown-menu dropdown-menu__action-cell launchers-dropdown-menu']//*[@class='launcher-item']//a")
+    public List<WebElement> list_Icon;
+
+
+    @FindBy(xpath = "//tbody//input[@type='checkbox']")
+    public List<WebElement> list_checkbox;
+
+    @FindBy(xpath = "(//table//th//input[@type='checkbox'])[1]")
+    public WebElement check_all;
+
+
+    public void checkThreeDots(List<String> expectedOptions) {
+
+        Random random = new Random();
+        int i = random.nextInt(10);
+        System.out.println("i = " + i);
+
+        String locator = "(//div[@class='dropdown']//*[text()='...'])[" + (i + 1) + "]";
+        WebElement eachThreeDot = Driver.getDriver().findElement(By.xpath(locator));
+        BrowserUtils.hover(eachThreeDot);
+
+        List<String> actualOptions = BrowserUtils.getElementsTextWithAttribute("title", list_Icon);
+
+        Assert.assertEquals(expectedOptions, actualOptions);
+
+    }
+
+//    public void checkAllCheckboxes(String isChecked) {
+//
+//        boolean res = isChecked.equals("unchecked") ? false : true;
+//
+//        System.out.println("list_checkbox.size() = " + list_checkbox.size());
+//
+//        for (WebElement checkbox : new VehiclesPage().list_checkbox) {
+//            BrowserUtils.hover(checkbox);
+//            Assert.assertEquals(res, checkbox.isSelected());
+//        }
+//
+//    }
+
+
+//    public void selectCar(int row) {
+//        WebElement car = list_checkbox.get(row - 1);
+//        BrowserUtils.hoverAndClick(car);
+//
+//    }
+
+    public void verifyCarIsSelected(int row,String isChecked) {
+        boolean res = isChecked.equals("unchecked") ? false : true;
+
+        WebElement car = list_checkbox.get(row - 1);
+        Assert.assertEquals(res,car.isSelected());
+
+    }
 
     @FindBy(css = "span.title-level-1")
     public List<WebElement> menuOptions;
@@ -37,6 +96,9 @@ public abstract class BasePage {
 
     @FindBy(linkText = "My User")
     public WebElement myUser;//TODO find this element
+
+
+
 
     public BasePage() {
         PageFactory.initElements(Driver.getDriver(), this);

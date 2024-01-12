@@ -7,6 +7,7 @@ import com.fleetmanagement.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.devtools.v85.browser.Browser;
 
 public class LoginStepDefinitions {
     LoginPage loginPage = new LoginPage();
@@ -40,7 +41,7 @@ public class LoginStepDefinitions {
     @When("the user enters Sales Manager information")
     public void theUserEntersSalesManagerInformation() {
         loginPage.login("salesmanager101", "UserUser123");
-        BrowserUtils.waitForInvisibilityOf(loginPage.loadingBar);
+
     }
 
     @When("the user enters {string} information")
@@ -59,6 +60,7 @@ public class LoginStepDefinitions {
             password = ConfigurationReader.getProperty("store_manager_password");
         }
         loginPage.login(username,password);
-        BrowserUtils.waitForInvisibilityOf(loginPage.loadingBar);
+        BrowserUtils.sleep(2);
+
     }
 }

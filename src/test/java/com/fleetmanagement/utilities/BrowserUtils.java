@@ -492,4 +492,14 @@ public class BrowserUtils {
     }
 
 
+    public static List<String> getElementsTextWithAttribute(String attribute, List<WebElement> elements) {
+        List<String> attributeValues = new ArrayList<>();
+        for (WebElement element : elements) {
+            String value = element.getAttribute(attribute);
+            if (value != null && !value.isEmpty()) {
+                attributeValues.add(value);
+            }
+        }
+        return attributeValues;
+    }
 }

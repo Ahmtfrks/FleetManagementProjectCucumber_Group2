@@ -1,5 +1,6 @@
 package com.fleetmanagement.pages;
 
+import com.fleetmanagement.utilities.BrowserUtils;
 import com.fleetmanagement.utilities.Driver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -29,6 +30,7 @@ public class LoginPage extends BasePage {
     public void login(String userNameInput, String passwordInput) {
         userName.sendKeys(userNameInput);
         password.sendKeys(passwordInput + Keys.ENTER);
+        BrowserUtils.sleep(2);
         //loginButton.click();
     }
 
