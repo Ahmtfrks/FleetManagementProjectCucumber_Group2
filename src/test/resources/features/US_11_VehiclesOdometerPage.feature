@@ -1,9 +1,13 @@
 Feature: As a user, I want to view car odometer info on the Vehicles Odometer page.
 
+
   Scenario Outline:Verify that <userType>s see the error message,
   “You do not have permission to perform this action.” when they click the Vehicle Odometer module.
+
+
+
     Given the user is on the login page
-    And the user enters <userType> information
+    And the user enters "<userType>" information
     When the user navigates "Fleet" "Vehicle Odometer"
     Then the user should be able to see below columns error message "<errorMessages>"
     Examples:

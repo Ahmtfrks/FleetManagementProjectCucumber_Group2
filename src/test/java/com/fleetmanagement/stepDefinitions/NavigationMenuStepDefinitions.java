@@ -13,7 +13,7 @@ public class NavigationMenuStepDefinitions {
 
     @When("the user navigates {string} {string}")
     public void the_user_navigates(String tab, String module) {
-        new VehicleOdometerPage().navigateToModule(tab, module);
+        new VehicleOdometerPage().navigateToModule(tab, module);//TODO fix here
     }
 
 
