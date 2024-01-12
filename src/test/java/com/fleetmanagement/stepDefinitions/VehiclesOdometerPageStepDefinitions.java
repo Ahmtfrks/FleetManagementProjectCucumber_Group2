@@ -20,8 +20,6 @@ public class VehiclesOdometerPageStepDefinitions {
         Integer actualNumber = Integer.parseInt(vehicleOdometerPage.pageNumber.getAttribute("value"));
 
         Assert.assertEquals(expectedPageNumber, actualNumber);
-
-
     }
 
     @Then("default view per page number should be {int}")
