@@ -28,7 +28,7 @@ Feature: Vehicle Page Feature
       | Truck Driver  | Fleet | Vehicles |
       | Sales Manager | Fleet | Vehicles |
       | Store Manager | Fleet | Vehicles |
-    #I did changes from ahmets computer
+
 
 
 

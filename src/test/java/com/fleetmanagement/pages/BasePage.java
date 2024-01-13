@@ -41,12 +41,15 @@ public abstract class BasePage {
         System.out.println("i = " + i);
 
         String locator = "(//div[@class='dropdown']//*[text()='...'])[" + (i + 1) + "]";
+        BrowserUtils.sleep(2);
         WebElement eachThreeDot = Driver.getDriver().findElement(By.xpath(locator));
+        BrowserUtils.sleep(2);
         BrowserUtils.hover(eachThreeDot);
-
+        BrowserUtils.sleep(2);
         List<String> actualOptions = BrowserUtils.getElementsTextWithAttribute("title", list_Icon);
-
+BrowserUtils.sleep(2);
         Assert.assertEquals(expectedOptions, actualOptions);
+        BrowserUtils.sleep(2);
 
     }
 

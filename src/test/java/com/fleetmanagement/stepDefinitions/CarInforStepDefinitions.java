@@ -38,15 +38,18 @@ public class CarInforStepDefinitions {
         Actions actions=new Actions(Driver.getDriver());
 
         actions.moveToElement(vehiclePage.threeDot).perform();
+
         BrowserUtils.sleep(3);
 
         String [] optionArray=options.split(",");
         List<String> strings= Arrays.stream(optionArray).map(k-> k.substring(0,1).toUpperCase()+k.substring(1)).collect(Collectors.toList());
-
+        BrowserUtils.sleep(2);
         vehiclePage.waitUntilLoaderScreenDisappear();
         BrowserUtils.waitForPageToLoad(20);
         BrowserUtils.sleep(5);
         vehiclePage.checkThreeDots(strings);
+        BrowserUtils.sleep(2);
         Driver.closeDriver();
+        BrowserUtils.sleep(2);
     }
 }
