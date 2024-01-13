@@ -29,6 +29,7 @@ public class LoginStepDefinitions {
 
     @Then("the user should see the dashboard")
     public void theUserShouldSeeTheDashboard() {
+        BrowserUtils.sleep(2);
         BrowserUtils.verifyTitle(ConfigurationReader.getProperty("title"));
         Driver.closeDriver();
     }
