@@ -27,12 +27,11 @@ public class MainModulesStepDefinition {
         return Arrays.asList(lines.split("\n"));
     }
 
-    @Then("the user that is Truck Driver sees {int} <module> names options:")
-    public void theUserThatIsTruckDriverSeesFourModuleNamesOptions(int countOfModules, List<String> mainModules) {
-//        BrowserUtils.sleep(2);
-//        for (int i = 0; i < countOfModules; i++) {
-//            List<String> mainModulesNames = BrowserUtils.getElementsText(mainModulesPage.MainModules);
-//            Assert.assertEquals(mainModules.get(i), mainModulesNames.get(i));
-//        }
+    @Then("the Truck Driver user should see the following modules:")
+    public void truckDriverUserShouldSeeFollowingModuleNames(List<String> modules) {
+        BrowserUtils.sleep(2);
+        List<String> mainMenuValues = parseLines(mainModulesPage.mainMenu.getText());
+
+        Assert.assertEquals(modules, mainMenuValues);
     }
 }

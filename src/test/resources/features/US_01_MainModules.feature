@@ -37,8 +37,8 @@ Feature: Access to all main modules of the application
 
   @second
   Scenario: Verify that Truck Drivers see 4 module names
-    When the user enters "<Truck Driver>" information
-    Then the user that is Truck Driver sees 4 <module> names options:
+    When the user enters "Truck Driver" information
+    Then the Truck Driver user should see the following modules:
       | Fleet      |
       | Customers  |
       | Activities |
