@@ -14,6 +14,7 @@ public class NavigationMenuStepDefinitions {
     public void theUserNavigates(String tab, String module) {
     vehiclePage.navigateToModule(tab,module);
         BrowserUtils.sleep(4);
+        BrowserUtils.waitForPageToLoad(3);
     }
 
     @Then("the title contains {string}")

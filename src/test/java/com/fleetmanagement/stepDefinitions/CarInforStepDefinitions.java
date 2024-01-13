@@ -47,5 +47,6 @@ public class CarInforStepDefinitions {
         BrowserUtils.waitForPageToLoad(20);
         BrowserUtils.sleep(5);
         vehiclePage.checkThreeDots(strings);
+        Driver.closeDriver();
     }
 }

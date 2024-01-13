@@ -60,7 +60,7 @@ public class LoginStepDefinitions {
             password = ConfigurationReader.getProperty("store_manager_password");
         }
         loginPage.login(username,password);
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(3);
 
     }
 }
