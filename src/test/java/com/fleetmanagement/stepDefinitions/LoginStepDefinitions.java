@@ -29,6 +29,7 @@ public class LoginStepDefinitions {
 
     @Then("the user should see the dashboard")
     public void theUserShouldSeeTheDashboard() {
+        BrowserUtils.sleep(2);
         BrowserUtils.verifyTitle(ConfigurationReader.getProperty("title"));
         Driver.closeDriver();
     }
@@ -47,20 +48,24 @@ public class LoginStepDefinitions {
     }
 
 
+//    TODO: fix the message as: "the user logins as {string}"
     @And("the user enters {string} information")
     public void theUserEntersInformation(String userType) {
-        String username = null;
-        String password = null;
+        String username;
+        String password;
 
-        if (userType.equals("Truck Driver")) {
+//        tip: when you compare to objects, as best practice, always write constants object first.
+        if ("Truck Driver".equals(userType)) {
             username = ConfigurationReader.getProperty("driver_username");
             password = ConfigurationReader.getProperty("driver_password");
-        } else if (userType.equals("Sales Manager")) {
+        } else if ("Sales Manager".equals(userType)) {
             username = ConfigurationReader.getProperty("sales_manager_username");
             password = ConfigurationReader.getProperty("sales_manager_password");
-        } else if (userType.equals("Store Manager")) {
+        } else if ("Store Manager".equals(userType)) {
             username = ConfigurationReader.getProperty("store_manager_username");
             password = ConfigurationReader.getProperty("store_manager_password");
+        } else {
+            throw new RuntimeException("Invalid User TYPE: " + userType); //todo ahmet
         }
         loginPage.login(username, password);
 
