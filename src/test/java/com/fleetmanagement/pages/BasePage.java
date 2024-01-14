@@ -143,7 +143,7 @@ public abstract class BasePage {
             wait.until(ExpectedConditions.invisibilityOf(progressBar));
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }//add
         }
 
     public String getUserName() {
