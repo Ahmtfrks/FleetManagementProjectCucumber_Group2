@@ -47,7 +47,7 @@ public abstract class BasePage {
         BrowserUtils.hover(eachThreeDot);
         BrowserUtils.sleep(2);
         List<String> actualOptions = BrowserUtils.getElementsTextWithAttribute("title", list_Icon);
-BrowserUtils.sleep(2);
+        BrowserUtils.sleep(2);
         Assert.assertEquals(expectedOptions, actualOptions);
         BrowserUtils.sleep(2);
 
@@ -87,6 +87,10 @@ BrowserUtils.sleep(2);
     @FindBy(css = "div[class='loader-mask shown']")
     @CacheLookup
     protected WebElement loaderMask;
+
+
+    @FindBy(css ="div[id='progressbar']" )
+    protected WebElement progressBar;
 
     @FindBy(css = "h1[class='oro-subtitle']")
     public WebElement pageSubTitle;
@@ -133,6 +137,14 @@ BrowserUtils.sleep(2);
         }
 
     }
+    public void waitUntilLoaderScreenDisappearForProgressBar() {
+        try {
+            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.invisibilityOf(progressBar));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        }
 
     public String getUserName() {
         waitUntilLoaderScreenDisappear();
@@ -180,6 +192,9 @@ BrowserUtils.sleep(2);
 //            BrowserUtils.waitForStaleElement(Driver.get().findElement(By.xpath(moduleLocator)));
             BrowserUtils.clickWithTimeOut(Driver.getDriver().findElement(By.xpath(moduleLocator)), 5);
         }
-    }
+        }
+        }
 
-}
+
+
+

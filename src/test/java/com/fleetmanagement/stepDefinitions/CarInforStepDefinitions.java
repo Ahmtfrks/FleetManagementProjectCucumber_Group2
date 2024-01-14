@@ -35,6 +35,8 @@ public class CarInforStepDefinitions {
     @Then("the user should be able to see options as {string}")
     public void theUserShouldBeAbleToSeeOptionsAs(String options) {
 
+        vehiclePage.waitUntilLoaderScreenDisappearForProgressBar();
+
         Actions actions=new Actions(Driver.getDriver());
 
         actions.moveToElement(vehiclePage.threeDot).perform();
