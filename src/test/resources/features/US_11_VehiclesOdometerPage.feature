@@ -2,7 +2,7 @@
 Feature: As a user, I want to view car odometer info on the Vehicles Odometer page.
 
   Background:
-    Given the user is on the login page
+    Given  the user is on the login page
 
     @B31G2-206
   Scenario Outline:Verify that <userType>s see the <errorMessages> when they click the Vehicle Odometer module.

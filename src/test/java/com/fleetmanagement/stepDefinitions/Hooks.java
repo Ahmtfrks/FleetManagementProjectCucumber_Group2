@@ -23,9 +23,9 @@ public class Hooks {
     public void setupMethod() {
         System.out.println("-----> @Before scenario");
 
-        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-
-        Driver.getDriver().get(ConfigurationReader.getProperty("envLoginURL"));
+//        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+//
+//        Driver.getDriver().get(ConfigurationReader.getProperty("envLoginURL"));
     }
 
     //@Before (value = "@login", order = 2 )
