@@ -23,7 +23,7 @@ public class US_02_OroincDocumentationPageStepDefinition {
 
     @Then("the user click the GetHelp button on the Fleet Management bar")
     public void the_user_click_the_get_help_button_on_the_fleet_management_bar() {
-        BrowserUtils.sleep(4);
+        BrowserUtils.sleep(5);
         //BrowserUtils.waitForPageToLoad(10);
         dashboardPage.getHelpButton.click();
     }
@@ -39,7 +39,6 @@ public class US_02_OroincDocumentationPageStepDefinition {
     @Then("the user should see the Oroinc Documentation page")
     public void the_user_should_see_the_oroinc_documentation_page() {
         BrowserUtils.verifyTitle(ConfigurationReader.getProperty("title_US02"));
-        Driver.closeDriver();
     }
 
 
