@@ -19,19 +19,24 @@ public class VehicleContractsPageStepDefinitions {
     public void theUserLoggedInAs(String userType) {
         String username = null;
         String password = null;
-        if (userType.equals("Truck Driver")) {
-            username = ConfigurationReader.getProperty("driver_username");
-            password = ConfigurationReader.getProperty("driver_password");
-        } else if (userType.equals("Sales Manager")) {
-            username = ConfigurationReader.getProperty("sales_manager_username");
-            password = ConfigurationReader.getProperty("sales_manager_password");
-        } else if (userType.equals("Store Manager")) {
-            username = ConfigurationReader.getProperty("store_manager_username");
-            password = ConfigurationReader.getProperty("store_manager_password");
+        switch (userType) {
+            case "Truck Driver":
+                username = ConfigurationReader.getProperty("driver_username");
+                password = ConfigurationReader.getProperty("driver_password");
+                break;
+            case "Sales Manager":
+                username = ConfigurationReader.getProperty("sales_manager_username");
+                password = ConfigurationReader.getProperty("sales_manager_password");
+                break;
+            case "Store Manager":
+                username = ConfigurationReader.getProperty("store_manager_username");
+                password = ConfigurationReader.getProperty("store_manager_password");
+                break;
         }
 
         loginPage.login(username, password);
         BrowserUtils.sleep(3);
+        BrowserUtils.waitForPageToLoad(10);
 
     }
 
