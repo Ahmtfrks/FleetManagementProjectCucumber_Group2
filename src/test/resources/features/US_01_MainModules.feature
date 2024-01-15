@@ -1,4 +1,4 @@
-@US01
+@B31G2-213
 Feature: Access to all main modules of the application
   User Story: As a user, when I'm on the login page of the fleet management application
   I should be accessing all the main modules of the app.
@@ -18,7 +18,7 @@ Feature: Access to all main modules of the application
 #  @Background:
 #  Given the user is on the login page
 
-  @first
+  @B31G2-211
   Scenario Outline: Verify user who has "<userType>" access can see 8 module names
     When the user enters "<userType>" information
     Then the user should see the following modules:
@@ -35,7 +35,7 @@ Feature: Access to all main modules of the application
       | Store Manager |
       | Sales Manager |
 
-  @second
+  @B31G2-212
   Scenario: Verify that Truck Drivers see 4 module names
     When the user enters "Truck Driver" information
     Then the Truck Driver user should see the following modules:
