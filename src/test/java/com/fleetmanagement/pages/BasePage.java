@@ -14,6 +14,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
+/**
+ * This page includes common method and web element about fleet management app
+ */
 public abstract class BasePage {
 
     @FindBy(css = "span.title-level-1")
@@ -66,12 +69,29 @@ public abstract class BasePage {
 
     }
 
+    public String getUserName() {
+        waitUntilLoaderScreenDisappear();
+        BrowserUtils.waitForVisibility(userName, 5);
+        return userName.getText();
+    }
 
+    public void logOut() {
+        BrowserUtils.waitFor(2);
+        BrowserUtils.clickWithJS(userName);
+        BrowserUtils.clickWithJS(logOutLink);
+    }
+
+    public void goToMyUser() {
+        waitUntilLoaderScreenDisappear();
+        BrowserUtils.waitForClickablility(userName, 5).click();
+        BrowserUtils.waitForClickablility(myUser, 5).click();
+
+    }
 
     /**
      * This method will navigate user to the specific module in vytrack application.
-     * For example: if tab is equals to Activities, and module equals to Calls,
-     * Then method will navigate user to this page: http://qa2.vytrack.com/call/
+     * For example: if tab is equals to Fleet, and module equals to Vehicle,
+     * Then method will navigate user to Fleet to Vehicle
      *
      * @param tab
      * @param module
@@ -93,7 +113,7 @@ public abstract class BasePage {
             Driver.getDriver().findElement(By.xpath(moduleLocator)).click();
         } catch (Exception e) {
 //            BrowserUtils.waitForStaleElement(Driver.get().findElement(By.xpath(moduleLocator)));
-            BrowserUtils.clickWithTimeOut(Driver.getDriver().findElement(By.xpath(moduleLocator)),  5);
+            BrowserUtils.clickWithTimeOut(Driver.getDriver().findElement(By.xpath(moduleLocator)), 5);
         }
     }
 

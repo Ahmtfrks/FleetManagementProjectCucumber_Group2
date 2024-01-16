@@ -6,6 +6,7 @@ import com.fleetmanagement.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import net.masterthought.cucumber.ReportBuilder;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -18,13 +19,19 @@ for ALL the SCENARIOS and even STEPS.
 public class Hooks {
 
     //import the @Before coming from io.cucumber.java
-    @Before(order = 1)
+    @Before(order = 1)//TODO learn this
     public void setupMethod() {
+        System.out.println("-----> @Before scenario");
 
         //Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
+
         //Driver.getDriver().get(ConfigurationReader.getProperty("envLoginURL"));
-    }//fgkdghsdfkghdfjkshgjgsdfjk
+    }
+
+       
+    }
+
 
     //@Before (value = "@login", order = 2 )
     public void login_scenario_before() {
@@ -36,15 +43,16 @@ public class Hooks {
      */
     @After
     public void teardownMethod(Scenario scenario) {
+        System.out.println("-----> @After scenario");
 
         if (scenario.isFailed()) {
 
             byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", scenario.getName());
-
+            System.out.println("Failed screen is saved in target/" + ReportBuilder.BASE_DIRECTORY + "/embeddings/");
         }
 
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(3);
         Driver.closeDriver();
 
     }
