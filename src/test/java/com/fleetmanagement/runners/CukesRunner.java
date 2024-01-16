@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {
+                //"pretty", "html:target/cucumber-reports",
                 "html:target/cucumber-reports.html",
                 "rerun:target/rerun.txt",
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber",
@@ -14,8 +15,14 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "com/fleetmanagement/stepDefinitions",
-        dryRun = false,
-        tags = ""
+
+
+
+
+       dryRun = false,
+        tags = "@B31G2-193",
+        publish = true
+
 
 )
 
