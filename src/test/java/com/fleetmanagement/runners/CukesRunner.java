@@ -20,7 +20,7 @@ import org.junit.runner.RunWith;
 
 
        dryRun = false,
-        tags = "@B31G2-217",
+        tags = "@B31G2-193",
         publish = true
 
 
