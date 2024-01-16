@@ -23,5 +23,7 @@ public class CalenderEvent {
     public WebElement checkBoxDefaultValue;
 
 
+    @FindBy(xpath = "//span[@style='top: 463px; left: 182px;']/span")
+    public WebElement errorMessage;
 
 }

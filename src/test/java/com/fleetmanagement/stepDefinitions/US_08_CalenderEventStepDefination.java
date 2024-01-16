@@ -78,14 +78,22 @@ public class US_08_CalenderEventStepDefination {
     }
     @When("user marks the Repeat option")
     public void user_marks_the_repeat_option() {
+        Actions actions = new Actions(Driver.getDriver());
 
+        actions.moveToElement(calenderEvent.repeatCheckBox).perform();
+
+        calenderEvent.repeatCheckBox.click();
 
 
     }
     @Then("verify that REPEAT_Every Value can not be Blank or Zero")
     public void verify_that_repeat_every_value_can_not_be_blank_or_zero() {
 
+        String actualDefaultValue = calenderEvent.checkBoxDefaultValue.getAttribute("value");
 
+        if (actualDefaultValue.equals(0)){
+            Assert.assertTrue(calenderEvent.errorMessage.isDisplayed());
+        }
 
     }
 
