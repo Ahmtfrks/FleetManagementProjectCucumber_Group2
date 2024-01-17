@@ -13,7 +13,7 @@ public class MainModulesStepDefinition {
 
     @Then("the user should see the following modules:")
     public void UserShouldSeeFollowingModuleNames(List<String> modules) {
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(4);
         List<String> mainMenuValues = parseLines(mainModulesPage.mainMenu.getText());
 
 //        Second way:
@@ -29,7 +29,7 @@ public class MainModulesStepDefinition {
 
     @Then("the Truck Driver user should see the following modules:")
     public void truckDriverUserShouldSeeFollowingModuleNames(List<String> modules) {
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(4);
         List<String> mainMenuValues = parseLines(mainModulesPage.mainMenu.getText());
 
         Assert.assertEquals(modules, mainMenuValues);
