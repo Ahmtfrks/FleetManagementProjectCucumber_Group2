@@ -5,7 +5,7 @@ Feature: Access to select vehicles
   Background:
     Given the user is on the login page
 
-    @ahmad
+
   Scenario Outline: As a user (Sales and Store manager),I should be able to select any vehicle from the Vehicles page
     And the user enters "<user Type>" information
     When users navigates to "Fleet" and "Vehicles" modules
@@ -25,6 +25,9 @@ Feature: Access to select vehicles
       |user Type|
       |Sales Manager|
       |Store Manager|
+
+
+  @ahmad
       Scenario Outline: Verify users can select any car
         And the user enters "<user Type>" information
         When users navigates to "Fleet" and "Vehicles" modules

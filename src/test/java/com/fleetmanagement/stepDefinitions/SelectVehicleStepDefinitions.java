@@ -16,7 +16,10 @@ public class SelectVehicleStepDefinitions {
 
     @When("users navigates to {string} and {string} modules")
     public void users_navigates_to_and_modules(String tab, String module) {
+        BrowserUtils.waitForPageToLoad(20);
+        BrowserUtils.sleep(2);
         selectVehiclePage.navigateToModule(tab,module);
+        BrowserUtils.sleep(2);
     }
 
 
@@ -50,8 +53,10 @@ public class SelectVehicleStepDefinitions {
     @Then("users can select any car")
     public void usersCanSelectAnyCar() {
         selectVehiclePage.waitUntilLoaderScreenDisappear();
+        BrowserUtils.waitForClickablility(selectVehiclePage.selectAnyCar,20);
         selectVehiclePage.selectAnyCar.click();
-        BrowserUtils.sleep(2);
+
         Assert.assertTrue("ONE OF THE CHECK BOXES IS NOT SELECTED",selectVehiclePage.selectAnyCar.isSelected());
+
     }
 }
