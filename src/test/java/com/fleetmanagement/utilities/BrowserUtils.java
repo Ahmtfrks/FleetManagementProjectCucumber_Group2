@@ -502,4 +502,7 @@ public class BrowserUtils {
     }
 
 
+    public static String getElementAttribute(String value, WebElement textBoxRepeatEveryDay) {
+        return value;
+    }
 }
